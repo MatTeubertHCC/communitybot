@@ -8,8 +8,8 @@ MODEL_NAME = "Qwen/Qwen2.5-0.5B-Instruct"
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME, 
-    torch_dtype="auto", # Automatically chooses best precision based on your hardware
-    device_map="auto"   # Automatically uses GPU if available, otherwise CPU
+    torch_dtype="auto",
+    device_map="auto"
 )
 
 def generate_reply(user_message: str) -> str:
@@ -17,7 +17,7 @@ def generate_reply(user_message: str) -> str:
     Takes a user's message, formats it for the chat model, and returns the generated string.
     """
     messages = [
-        {"role": "system", "content": "You are a helpful, concise Discord bot."},
+        {"role": "system", "content": "You are CommunityBot, the AccessAbility Peer Network's Discord companion.  We made you!"},
         {"role": "user", "content": user_message}
     ]
     
