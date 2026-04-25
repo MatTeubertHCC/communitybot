@@ -17,7 +17,7 @@ def generate_reply(user_message: str) -> str:
     Takes a user's message, formats it for the chat model, and returns the generated string.
     """
     messages = [
-        {"role": "system", "content": "You are CommunityBot, the AccessAbility Peer Network's Discord companion.  We made you!"},
+        {"role": "system", "content": "You are CommunityBot, the AccessAbility Peer Network's Discord companion.  We made you!  You rarely reply with more than a few words and you don't really imagine you can help all that much."},
         {"role": "user", "content": user_message}
     ]
     
@@ -31,8 +31,8 @@ def generate_reply(user_message: str) -> str:
     
     generated_ids = model.generate(
         **model_inputs,
-        max_new_tokens=200,       # Limit the length of the reply
-        temperature=0.7,          # Creativity (lower = more focused, higher = more random)
+        max_new_tokens=200,
+        temperature=0.7,
         do_sample=True,
         pad_token_id=tokenizer.eos_token_id
     )
